@@ -33,10 +33,23 @@ def about():
     return render_template('about.html')
 
 @app.route('/Form_Validate', methods=['POST'])
-def form_validate():
-    report=Report(request.POST)
-    #report.save()
+def report_validate():
+    report=Report(request.form)
+    if request.method == 'POST' and report.validate():
+    form_values =
+    report.save()
     return redirect('/report')
+
+# @app.route('/register', methods=['GET', 'POST'])
+# def register():
+#     form = RegistrationForm(request.form)
+#     if request.method == 'POST' and form.validate():
+#         user = User(form.username.data, form.email.data,
+#                     form.password.data)
+#         db_session.add(user)
+#         flash('Thanks for registering')
+#         return redirect(url_for('login'))
+#     return render_template('register.html', form=form)
 
 #  engine.execute('select * from users where id = :1', [1]).first()
 #(1, u'admin', u'admin@localhost')
