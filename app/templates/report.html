@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+  
+{% block content %}
+<div id="FormThanks" class="jumbo" style=" display: none;">
+הודעתך נשלחה, תודה!
+</div>
+<div id="FormError" class="jumbo" style=" display: none;">
+חלה תקלה בשליחה.
+</div>
+<div class="jumbo">
+  <h2>טופס דיווח על הטרדה מינית</h2>
+  <p>טופס זה מורכב משני חלקים: בחלק הראשון עלייך למלא את פרטייך האישיים ובחלק השני את פרטי המטריד</p>
+</div>
+
+<div id="Report" class="jumbo">
+    <form id="reportForm"  action="/report" method="post" enctype="text/plain">
+    <!-- <form action="mailto:rrevitall@gmail.com" method="post" enctype="text/plain"> -->
+
+       <fieldset>
+          <legend>פרטי הפונה</legend>
+          <label for="name">מאחר ומדובר במידע רגיש נוכל להתייחס רק לפניות בהן נוכל ליצור קשר עם המתלוננות ולשוחח עימן </label>
+               <p>שם פרטי: <input type="text" id="a_firstname" name="a_firstname" value="default text" tabindex="1" size="25" maxlength="40" />
+                  שם משפחה: <input type="text" id="a_lastname" name="a_lastname" value="" tabindex="2" size="25" maxlength="40" /> </p>
+               <p>אימייל: <input type="text" id="a_Email" name="a_Email" value="" tabindex="3" size="25" maxlength="40" /> </p>
+               <p>נייד: <input type="text" id="a_Mobile" name="a_Mobile" value="" tabindex="4" size="25" maxlength="40" /> </p>
+              <!--  <p dir="rtl">עברית</p>  -->
+        </fieldset>
+
+     <br />
+     <br />
+
+        <fieldset>
+          <legend>פרטי המטריד</legend>
+             <label for="name">מסר או הנחייה כלשהם</label>
+             <p>שם פרטי: <input type="text" id="b_firstname" name="b_firstname" tabindex="5" value="" size="25" maxlength="40" /> </p>
+             <p>שם משפחה: <input type="text" id="b_lastname" name="b_lastname" tabindex="6" value="" size="25" maxlength="40" /> </p>
+           <!--
+             <p>מקום: <input type="text" id="place" name="place" tabindex="5" value="" size="25" maxlength="40" /> </p>
+          --> 
+             <p>מקום: <select id="b_place" name="b_place"  tabindex="7" maxlength="80">
+                             <option value="1">עבודה</option>
+                             <option value="2">שירות צבאי</option>
+                             <option value="3">אוניברסיטה</option>
+                             <option value="4">משפחה</option>
+                             <option value="5">בית ספר</option>
+                             <option value="6">אחר</option>
+                             <option value="7" selected="selected"> </option>
+                      </select> 
+             </p>
+
+
+           <p>פרטי המקרה: <textarea rows="5" cols="90" id="b_description" tabindex="8" name="b_description"> אנא פרטי מעט על מה שאירע </textarea></p>
+
+        </fieldset>
+         <p> <input id="submitBtn" type="submit" value="דווחי" />
+             <input type="Reset" value="ניקוי טופס" />
+         </p>
+    </form>
+</div>
+
+<!--
+var data = {
+    a_firstname: a_firstnameValue(),
+    a_lastname: a_lastnameValue(),
+    a_Email: a_EmailValue(),
+    a_Mobile: a_MobileValue(),
+    b_firstname: b_firstnameValue(),
+    b_lastname: b_lastnameValue(),
+    b_place: b_placeValue(),
+    b_description: b_descriptionValue()
+};
+-->
+{% endblock %}
